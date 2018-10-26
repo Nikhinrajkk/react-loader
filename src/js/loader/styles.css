@@ -1,0 +1,67 @@
+.segment {
+    position: relative;
+}
+
+.global {
+    position: fixed;
+}
+
+.loader-container {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.loader-wrapper {
+    position: absolute;
+    top: 40%;
+    left: 47%;
+}
+
+@keyframes rotation {   
+    from {
+            transform: rotate(0deg);
+    }
+    to {
+            transform: rotate(359deg);
+    }
+}
+
+.loader-points {
+    animation: rotation steps(12, end) infinite;
+}
+
+.loader-dots {
+    animation: rotation steps(8, end) infinite;
+}
+
+.loader-lines {
+    animation: rotation steps(7, end) infinite;
+}
+
+.loader-thin-lines {
+    animation: rotation steps(16, end) infinite;
+}
+
+.loader-lines-outline {
+    animation: rotation steps(7, end) infinite;
+}
+
+.loader-refresh {
+    animation: rotation infinite linear;
+}
+
+.loader-gear {
+    animation: rotation steps(8, end) infinite;
+}
+
+.loader-gear-outline {
+    animation: rotation steps(8, end) infinite;
+}
+
+.loader-circles {
+    animation: rotation infinite linear;
+}
+
