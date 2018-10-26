@@ -1,11 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import Loader from './js/loader';
-
-const App = () => (
-    <div style={{ display: 'flex', marginTop: 50 }}>
-        <Loader isLoading={true} type="spinner-of-dots" />
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+const paragraph = `Lorem Ipsum is simply dummy text of the printing and typesetting industry.
     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
     when an unknown printer took a galley of type and scrambled it to make a type
     specimen book. It has survived not only five centuries, but also the leap into
@@ -43,8 +39,29 @@ const App = () => (
     on the Internet. It uses a dictionary of over 200 Latin words, combined with a
     handful of model sentence structures, to generate Lorem Ipsum which looks
     reasonable. The generated Lorem Ipsum is therefore always free from repetition,
-    injected humour, or non-characteristic words etc.
+    injected humour, or non-characteristic words etc.`;
 
-    
-  </div>);
+
+const App = () => (
+    <div style={{ display: 'flex', marginTop: 50, flexDirection: 'column' }}>
+        {/* <Loader
+            isLoading={false}
+            type="refresh"
+            color="white"
+            size={50}
+            segment={false}
+        /> */}
+        {paragraph}
+        <div style={{ width: 300, height: 300, backgroundColor: 'yellow'}}>
+            <Loader
+                isLoading={true}
+                // type="gear"
+                // color="white"
+                // size={100}
+                // segment={false}
+                // duration={1}
+                // backgroundOpacity={.25}
+            />
+        </div>
+    </div>);
 render(<App />, document.getElementById("root"));

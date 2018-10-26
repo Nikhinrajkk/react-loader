@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
 
-const iconStyle = (icon, width, height) => ({
-  height: width,
-  width: height,
-  backgroundColor: 'white',
+const iconStyle = (icon, color, size) => ({
+  height: size,
+  width: size,
+  backgroundColor: color,
   WebkitMaskImage: `url(../../../assets/icons/${icon}.svg)`,
   maskImage: `url(../../../assets/icons/${icon}.svg)`
 });
@@ -18,15 +18,29 @@ class Loader extends React.Component {
   }
 
   render() {
-    const { type, isLoading } = this.props;
-    const iconUrl = `../../../assets/icons/${type}.svg`;
+    const {
+      type = 'lines',
+      isLoading,
+      color = 'white',
+      size = 40,
+      segment = false,
+      duration = 1,
+      backgroundOpacity = 0.25
+    } = this.props;
+
+    const containerClass = segment ? 'loader-container segment' : 'loader-container global';
+
     return (
       isLoading &&
-      <div className="loader-container">
+      <div
+        className="loader-container"
+        style={{
+          backgroundColor: `rgb(0, 0, 0, ${backgroundOpacity})`,
+          position: segment ? 'relative' : 'fixed'
+        }}>
         <div className="loader-wrapper">
-          <div>
-            <div style={iconStyle('spinner-of-dots', 20, 20)} />
-            <img id="loader" src={iconUrl} alt="ing" height={35} width={35}/>
+          <div className={`loader-${type}`} style={{ animationDuration: `${duration}s` }}>
+            <div style={iconStyle(`spinner-of-${type}`, color, size)} />
           </div>
         </div>
       </div>
