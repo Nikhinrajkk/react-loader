@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import Loader from './js/loader';
+
 const paragraph = `Lorem Ipsum is simply dummy text of the printing and typesetting industry.
     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
     when an unknown printer took a galley of type and scrambled it to make a type
@@ -41,7 +42,7 @@ const paragraph = `Lorem Ipsum is simply dummy text of the printing and typesett
     reasonable. The generated Lorem Ipsum is therefore always free from repetition,
     injected humour, or non-characteristic words etc.`;
 
-const second_paragraph = `Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+const secondParagraph = `Lorem Ipsum is simply dummy text of the printing and typesetting industry.
     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
     when an unknown printer took a galley of type and scrambled it to make a type
     specimen book. It has survived not only five centuries, but also the leap into
@@ -51,19 +52,20 @@ const second_paragraph = `Lorem Ipsum is simply dummy text of the printing and t
 
 
 const App = () => (
-    <div style={{ display: 'flex', marginTop: 50, flexDirection: 'column' }}>
-        <Loader
-            isLoading={true}
-            type="thin-lines"
-            color="black"
-            size={50}
-            segment={false}
-            duration={1.5}
-            backgroundOpacity={.25}
-        />
-        {paragraph}
-        <div style={{ width: 300, height: 300, backgroundColor: 'yellow', overflow: 'auto', padding: 10 }}>
-            {second_paragraph}
-        </div>
-    </div>);
-render(<App />, document.getElementById("root"));
+  <div style={{ display: 'flex', marginTop: 50, flexDirection: 'column' }}>
+    <Loader
+      isLoading={true}
+      type="gear-outline"
+      color="black"
+      size={50}
+      segment={false}
+      duration={2}
+      backgroundOpacity={0.25}
+      spacing={2}
+    />
+    {paragraph}
+    <div style={{ width: 300, height: 300, backgroundColor: 'yellow', overflow: 'auto', padding: 10 }}>
+      {secondParagraph}
+    </div>
+  </div>);
+render(<App />, document.getElementById('root'));

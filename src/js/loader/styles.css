@@ -20,11 +20,11 @@
     animation: rotation steps(12, end) infinite;
 }
 
-.loader-dots {
+.loader-dots, .loader-gear, .loader-gear-outline{
     animation: rotation steps(8, end) infinite;
 }
 
-.loader-lines {
+.loader-lines, .loader-lines-outline {
     animation: rotation steps(7, end) infinite;
 }
 
@@ -32,41 +32,24 @@
     animation: rotation steps(16, end) infinite;
 }
 
-.loader-lines-outline {
-    animation: rotation steps(7, end) infinite;
-}
-
-.loader-refresh {
-    animation: rotation infinite linear;
-}
-
-.loader-gear {
-    animation: rotation steps(8, end) infinite;
-}
-
-.loader-gear-outline {
-    animation: rotation steps(8, end) infinite;
-}
-
-
-.loader-circles {
-    animation: rotation infinite linear;
-}
-
-.loader-circle {
-    animation: rotation infinite linear;
-}
-
-.loader-points {
-    animation: rotation infinite linear;
-}
-
-.loader-shutter {
-    animation: rotation infinite linear;
-}
-
-.loader-settings {
+.loader-refresh, .loader-circle, .loader-points,
+.loader-shutter, .loader-settings {
     animation: rotation infinite linear;
 }
 
 
+
+
+.dot {
+    border-radius: 15px;
+    position: relative;
+    animation: example 1s infinite linear;
+}
+  
+@keyframes example {
+    0%   {left:0px; top: 0px;}
+    25%  {left:0px; top:-15px;}
+    75%  {left:0px; top: 15px;}
+    100% {left:0px; top: 0px;}
+}
+  
