@@ -54,11 +54,11 @@ const App = () => (
     <div style={{ display: 'flex', marginTop: 50, flexDirection: 'column' }}>
         <Loader
             isLoading={true}
-            type="gear"
-            color="white"
+            type="thin-lines"
+            color="black"
             size={50}
             segment={false}
-            duration={1}
+            duration={1.5}
             backgroundOpacity={.25}
         />
         {paragraph}

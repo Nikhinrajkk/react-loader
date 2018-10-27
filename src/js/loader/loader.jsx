@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './styles.css';
 
 const iconStyle = (icon, color, size) => ({
@@ -11,11 +10,6 @@ const iconStyle = (icon, color, size) => ({
 });
 
 class Loader extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
 
   render() {
     const {
@@ -28,18 +22,17 @@ class Loader extends React.Component {
       backgroundOpacity = 0.25
     } = this.props;
 
-    const containerClass = segment ? 'loader-container segment' : 'loader-container global';
-
+    const windowCenter = `calc(50% - ${size / 2}px)`;
     return (
       isLoading &&
       <div
         className="loader-container"
         style={{
           backgroundColor: `rgb(0, 0, 0, ${backgroundOpacity})`,
-          position: segment ? 'relative' : 'fixed'
+          position: segment ? 'absolute' : 'fixed'
         }}>
-        <div className="loader-wrapper">
-          <div className={`loader-${type}`} style={{ animationDuration: `${duration}s` }}>
+        <div style={{ position: 'absolute', top: windowCenter, left: windowCenter }}>
+          <div className={`loader-wrapper loader-${type}`} style={{ animationDuration: `${duration}s` }}>
             <div style={iconStyle(`spinner-of-${type}`, color, size)} />
           </div>
         </div>
@@ -47,13 +40,5 @@ class Loader extends React.Component {
     );
   }
 }
-
-Loader.propTypes = {
-
-};
-
-Loader.defaultProps = {
-
-};
 
 export default Loader;
