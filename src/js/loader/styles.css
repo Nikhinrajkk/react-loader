@@ -41,15 +41,40 @@
 
 
 .dot {
-    border-radius: 15px;
     position: relative;
-    animation: example 1s infinite linear;
+    animation: spinning 1s infinite linear;
 }
   
-@keyframes example {
+@keyframes spinning {
     0%   {left:0px; top: 0px;}
     25%  {left:0px; top:-15px;}
     75%  {left:0px; top: 15px;}
     100% {left:0px; top: 0px;}
 }
+
+.zig-zag {
+    position: relative;
+    animation: zig-zag 1s infinite linear;
+}
+  
+@keyframes zig-zag {
+    0%   { transform: scale(1) }
+    25%  { transform: scale(1.5) }
+    75%  { transform: scale(0.5) }
+    100% { transform: scale(1) }
+}
+
+.color {
+    position: relative;
+    animation: color steps(16, end) infinite;
+    border: 1px solid black;
+}
+  
+@keyframes color {
+    0%   { background-color:black }
+    50% { background-color: white }
+    75% { background-color: white }
+    100% { background-color: white }
+}
+  
   

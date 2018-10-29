@@ -55,13 +55,14 @@ const App = () => (
   <div style={{ display: 'flex', marginTop: 50, flexDirection: 'column' }}>
     <Loader
       isLoading={true}
-      type="gear-outline"
-      color="black"
-      size={50}
+      type="dot-spinner"
+      primaryColor="white"
+      secondaryColor="green"
+      size={30}
       segment={false}
-      duration={2}
+      duration={1}
       backgroundOpacity={0.25}
-      spacing={2}
+      spacing={5}
     />
     {paragraph}
     <div style={{ width: 300, height: 300, backgroundColor: 'yellow', overflow: 'auto', padding: 10 }}>
@@ -69,3 +70,18 @@ const App = () => (
     </div>
   </div>);
 render(<App />, document.getElementById('root'));
+
+
+// lines
+// lines-outline
+// thin-lines
+// circle
+// gear-outline
+// gear
+// points
+// refresh
+// settings
+// shutter
+// color-spinner
+// dot-spinner
+// zig-zag-spinner

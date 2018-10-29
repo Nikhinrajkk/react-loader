@@ -23,7 +23,6 @@ class Loader extends React.Component {
   }
 
   renderDotLoader(color, size, spacing) {
-    const radius = size / 2;
     const windowCenterHeight = `calc(50% - ${size / 2}px)`;
     const windowCenterWidth = `calc(50% - ${((size + spacing) * 4) / 2}px)`;
     const defaultStyle = {
@@ -31,7 +30,7 @@ class Loader extends React.Component {
       backgroundColor: color,
       width: size,
       height: size,
-      borderRadius: radius
+      borderRadius: size
     };
     return (
       <div style={{ position: 'relative', top: windowCenterHeight, left: windowCenterWidth, display: 'flex' }}>
@@ -43,16 +42,75 @@ class Loader extends React.Component {
     );
   }
 
-  render() {
+  renderSpanCircleLoader(color, size, spacing) {
+    const windowCenterHeight = `calc(50% - ${size / 2}px)`;
+    const windowCenterWidth = `calc(50% - ${((size + spacing) * 4) / 2}px)`;
+    const defaultStyle = {
+      margin: spacing,
+      backgroundColor: color,
+      width: size,
+      height: size,
+      borderRadius: size
+    };
+    return (
+      <div style={{ position: 'relative', top: windowCenterHeight, left: windowCenterWidth, display: 'flex' }}>
+        <div className="zig-zag" style={Object.assign({}, defaultStyle)} />
+        <div className="zig-zag" style={Object.assign({ animationDelay: '0.1s' }, defaultStyle)} />
+        <div className="zig-zag" style={Object.assign({ animationDelay: '0.2s' }, defaultStyle)} />
+        <div className="zig-zag" style={Object.assign({ animationDelay: '0.3s' }, defaultStyle)} />
+      </div>
+    );
+  }
+
+  renderColorCircleLoader(duration, primaryColor, size, spacing, secondaryColor) {
+    const windowCenterHeight = `calc(50% - ${size / 2}px)`;
+    const windowCenterWidth = `calc(50% - ${((size + spacing) * 4) / 2}px)`;
+    const defaultStyle = {
+      margin: spacing,
+      width: size,
+      height: size,
+      borderRadius: size
+    };
+    return (
+      <div style={{ position: 'relative', top: windowCenterHeight, left: windowCenterWidth, display: 'flex' }}>
+        <div className="color" style={Object.assign({ animationDuration: `${duration}s` }, defaultStyle)} />
+        <div className="color" style={Object.assign({ animationDelay: '.2s', animationDuration: `${duration}s` }, defaultStyle)} />
+        <div className="color" style={Object.assign({ animationDelay: '.4s', animationDuration: `${duration}s` }, defaultStyle)} />
+        <div className="color" style={Object.assign({ animationDelay: '.6s', animationDuration: `${duration}s` }, defaultStyle)} />
+      </div>
+    );
+  }
+
+  renderSpinners() {
     const {
       type = 'lines',
       isLoading,
-      color = 'white',
       size = 40,
       segment = false,
       duration = 1,
       backgroundOpacity = 0.25,
-      spacing = 4
+      spacing = 4,
+      primaryColor = "yellow",
+      secondaryColor = "green"
+    } = this.props;
+
+    switch (type) {
+      case 'dot-spinner':
+        return this.renderDotLoader(primaryColor, size, spacing)
+      case 'zig-zag-spinner':
+        return this.renderSpanCircleLoader(primaryColor, size, spacing)
+      case 'color-spinner':
+        return this.renderColorCircleLoader(duration, primaryColor, size, spacing, secondaryColor)
+      default:
+        return this.renderCircleLoader(duration, type, primaryColor, size)
+    }
+  }
+
+  render() {
+    const {
+      isLoading,
+      segment = false,
+      backgroundOpacity = 0.25,
     } = this.props;
     return (
       isLoading
@@ -64,10 +122,7 @@ class Loader extends React.Component {
             position: segment ? 'absolute' : 'fixed'
           }}
         >
-          { type === 'dot-spinner'
-            ? this.renderDotLoader(color, size, spacing)
-            : this.renderCircleLoader(duration, type, color, size)
-          }
+          {this.renderSpinners()}
         </div>
       )
     );
