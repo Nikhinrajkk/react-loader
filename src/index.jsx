@@ -55,13 +55,13 @@ const App = () => (
   <div style={{ display: 'flex', marginTop: 50, flexDirection: 'column' }}>
     <Loader
       isLoading={true}
-      type="dot-spinner"
-      primaryColor="white"
+      type="zig-zag-spinner"
+      primaryColor="yellow"
       secondaryColor="green"
       size={30}
       segment={false}
       duration={1}
-      backgroundOpacity={0.25}
+      backgroundOpacity={0.5}
       spacing={5}
     />
     {paragraph}
@@ -71,17 +71,25 @@ const App = () => (
   </div>);
 render(<App />, document.getElementById('root'));
 
-
+// dot
+// op-dot
+// bars
 // lines
+// op-lines
+// square
+// circle
+// ellipse
+// ellipse-outline
+
 // lines-outline
 // thin-lines
-// circle
 // gear-outline
 // gear
 // points
 // refresh
 // settings
 // shutter
+
 // color-spinner
 // dot-spinner
 // zig-zag-spinner

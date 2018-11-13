@@ -76,5 +76,33 @@
     75% { background-color: white }
     100% { background-color: white }
 }
-  
+
+.icon {
+    animation: rotate 1s infinite linear;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-icon {
+    animation: rotate 1s steps(12, end) infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icons {
+    position: absolute;
+  }
+
+
+@-webkit-keyframes rotate {
+    from {
+            -webkit-transform: rotate(0deg);
+    }
+    to {
+            -webkit-transform: rotate(359deg);
+    }
+}
+
   
